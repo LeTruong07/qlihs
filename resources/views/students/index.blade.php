@@ -6,19 +6,13 @@
 </head>
 <body>
     <p>Hoc sinh</p>
-    <li>
-        <a href="/students/{{$students[0]["id"]}}">
-            {{$students[0]["name"]}}
-            <br>
-        </a>
-        <a href="/students/{{$students[1]["id"]}}">
-            {{$students[1]["name"]}}
-            <br>
-        </a>
-        <a href="/students/{{$students[2]["id"]}}">
-            {{$students[2]["name"]}}
-            <br>
-        </a>
-    </li>
+    <ul>
+        @foreach($students as $student)
+            <li>
+                <p>{{$student['name']}}</p>
+                <a href="/students/{{$student['id']}}">View details</a>
+            </li>
+        @endforeach
+    </ul>
 </body>
 </html>
