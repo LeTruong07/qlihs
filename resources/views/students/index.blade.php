@@ -1,18 +1,12 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thong tin hoc sinh</title>
-</head>
-<body>
-    <p>Hoc sinh</p>
+<x-layout>
+    <h2>Danh sach hoc sinh</h2>
     <ul>
         @foreach($students as $student)
             <li>
-                <p>{{$student['name']}}</p>
-                <a href="/students/{{$student['id']}}">View details</a>
+                <x-card href="/students/{{$student['id']}}" :highlight="$student['skill'] > 70"> 
+                    <h3>{{$student['name']}}</h3>
+                </x-card>
             </li>
         @endforeach
     </ul>
-</body>
-</html>
+</x-layout>
