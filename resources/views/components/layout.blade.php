@@ -17,5 +17,9 @@
     <main class="container">
         {{$slot}}
     </main>
+
+    <footer>
+        <p>&copy;Phenikaa Student Network</p>
+    </footer>
 </body>
 </html>
