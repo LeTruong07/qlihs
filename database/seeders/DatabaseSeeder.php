@@ -19,5 +19,16 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        $this->call([
+            StudentSeeder::class, 
+        ]);
     }
 }
+
+// php artisan migrate // chay cac file migration
+// php artisan migrate:rollback // rollback migration truoc do
+// php artisan migrate:reset // rollback tat ca migration
+// php artisan migrate:refresh // rollback tat ca migration va chay lai
+// php artisan migrate:status // xem trang thai cua migration
+//php artisan migrate:fresh --seed // xoa toan bo bang va chay lai migration, sau do chay seeder
