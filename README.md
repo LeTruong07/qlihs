@@ -2,7 +2,6 @@
 
 [![Laravel Version](https://img.shields.io/badge/Laravel-9.x-red)](https://laravel.com)  
 [![PHP Version](https://img.shields.io/badge/PHP-8.0%2B-blue)](https://www.php.net)  
-[![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 ---
 
