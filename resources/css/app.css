@@ -7,26 +7,23 @@
     --secondary-color: #ffc107;
     --background-color: #f9f9f9;
     --text-color: #333;
-    --highlight-color: #ffeb3b;
-    --highlight-border-color: #ffc107;
 }
 
 body {
-    font-family: "Rubik", sans-serif;
+    font-family: Arial, sans-serif;
     background-color: var(--background-color);
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    color: var(--text-color);
 }
 
-header {
-    width: 100%;
-    background-color: var(--primary-color);
-    padding: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+header,
+footer {
+    background-color: #1e3a8a;
+    color: white;
+    padding: 1rem 0;
 }
 
 header nav {
@@ -43,12 +40,12 @@ header nav h1 {
 header nav a {
     color: white;
     text-decoration: none;
-    margin-left: 1rem;
+    margin: 0 0.5rem;
     transition: color 0.3s;
 }
 
 header nav a:hover {
-    color: var(--secondary-color);
+    color: rgb(27, 224, 20);
 }
 
 main.container {
@@ -56,6 +53,14 @@ main.container {
     width: 90%;
     max-width: 1200px;
     margin: 2rem auto;
+}
+
+main {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 1.5rem;
 }
 
 h2 {
@@ -105,25 +110,28 @@ li:hover {
 }
 
 .btn {
-    background-color: var(--primary-color);
-    color: white;
+    display: inline-block;
     padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
+    border-radius: 0.25rem;
     text-decoration: none;
+    color: white;
+    background-color: #1e3a8a; /* Tailwind CSS blue-800 */
+    margin-right: 0.5rem;
     transition: background-color 0.3s;
 }
 
-.btn:hover {
-    background-color: var(--secondary-color);
+.btn-primary {
+    background-color: #2563eb; /* Tailwind CSS blue-600 */
 }
 
-footer {
-    width: 100%;
-    background-color: var(--primary-color);
-    padding: 1rem;
+.btn-danger {
+    background-color: #dc2626; /* Tailwind CSS red-600 */
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+footer p {
     text-align: center;
-    color: white;
-    position: relative;
-    bottom: 0;
 }

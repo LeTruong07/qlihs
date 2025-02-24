@@ -8,17 +8,23 @@ use Illuminate\Http\Request;
 class StudentController extends Controller
 {
     /**
-     * Hien thi danh sach tat ca sinh vien.
+     * Hien thi danh sach sinh vien
      * /students/ GET
      */
-    public function index()
+    public function index(Request $request)
     {
-        $students = Student::all();
+        $search = $request->input('search');
+        $students = Student::query()
+            ->when($search, function ($query, $search) {
+                return $query->where('name', 'like', "%{$search}%");
+            })
+            ->get();
+
         return view('students.index', compact('students'));
     }
 
     /**
-     * Hien thi form tao sinh vien.
+     * Hien thi form tao sinh vien moi
      * /students/create GET
      */
     public function create()
@@ -27,7 +33,7 @@ class StudentController extends Controller
     }
 
     /**
-     * Luu sinh vien moi vao database.
+     * Luu sinh vien moi vao database
      * students/ POST
      */
     public function store(Request $request) //Request la mot doi tuong chua tat ca thong tin cua request gui len server

@@ -1,11 +1,15 @@
 <x-layout>
-    <h2>Danh sach hoc sinh</h2>
+    <h2>All Students</h2>
+
+    <form action="{{ route('students.index') }}" method="GET">
+        <input type="text" name="search" placeholder="Search students..." value="{{ request('search') }}">
+        <button type="submit">Search</button>
+    </form>
+
     <ul>
-        @foreach($students as $student)
+        @foreach ($students as $student)
             <li>
-                <x-card href="{{ route('students.show', $student->id) }}" :highlight="$student->skill == 'C#'"> 
-                    <h3>{{ $student->name }}</h3>
-                </x-card>
+                <a href="{{ route('students.show', $student->id) }}">{{ $student->name }}</a>
             </li>
         @endforeach
     </ul>
