@@ -18,11 +18,10 @@
 
 ## Tổng Quan
 
-Hệ Thống Quản Lý Sinh Viên này là một ứng dụng Laravel "chất lừ" giúp bạn:
-- **Hiển thị** danh sách tất cả sinh viên cực nhanh.
-- **Xem** chi tiết thông tin của từng sinh viên.
-- **Thêm mới** sinh viên cực dễ.
-- **Seed** dữ liệu mẫu vào database để test thử ngay.
+Hệ Thống Quản Lý Sinh Viên này là một ứng dụng Laravel giúp bạn:
+- **Hiển thị** danh sách tất cả sinh viên
+- **Xem** chi tiết thông tin của từng sinh viên
+- **Thêm mới** sinh viên dễ dàng
 
 ---
 
@@ -41,6 +40,7 @@ Hệ Thống Quản Lý Sinh Viên này là một ứng dụng Laravel "chất l
 - **Composer**
 - **PostgreSQL**
 - **Node.js & npm**
+- **Vite**
 
 ---
 
@@ -65,6 +65,7 @@ Làm theo các bước dưới đây để khởi động hệ thống:
    ```bash
    npm install
    ```
+   **Lưu ý:** Nếu bạn chưa có, hãy tải và cài đặt **Vite** từ [vitejs.dev](https://vitejs.dev/)
 
 3. **Cấu Hình Môi Trường:**
 
@@ -102,5 +103,3 @@ Dự án bao gồm:
 
 - **StudentFactory**: Sinh ra dữ liệu mẫu với các kỹ năng và lớp học đã được định sẵn.
 - **StudentSeeder**: Dùng factory để thả luôn dữ liệu sinh viên mẫu vào database.
-
-
