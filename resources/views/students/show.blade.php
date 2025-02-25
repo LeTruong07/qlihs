@@ -1,6 +1,6 @@
 <x-layout>
     <div class="p-6 bg-white rounded shadow-md">
-        <h2 class="text-2xl font-bold mb-4">Hoc Sinh id {{ $student->id }}</h2>
+        <h2 class="text-2xl font-bold mb-4">Student id {{ $student->id }}</h2>
         <p class="mb-2"><strong>Name:</strong> {{ $student->name }}</p>
         <p class="mb-2"><strong>Skill:</strong> {{ $student->skill }}</p>
         <p class="mb-2"><strong>Class:</strong> {{ $student->class }}</p>
