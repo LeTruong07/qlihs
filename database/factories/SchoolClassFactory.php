@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\SchoolClass;
+use App\Models\Faculty;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -37,6 +38,7 @@ class SchoolClassFactory extends Factory
 
         return [
             'name' => $className,
+            'faculty_id' => Faculty::inRandomOrder()->first()->id,
         ];
     }
 }

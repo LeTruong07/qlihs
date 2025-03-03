@@ -20,11 +20,11 @@ class StudentFactory extends Factory
      */
     public function definition(): array
     {
-        $skills = ['PHP', 'C#', 'Python', 'Java', 'JavaScript', 'Ruby', 'Go', 'Swift', 'Kotlin', 'TypeScript'];
+        $skills = ['PHP', 'C#', 'Python', 'Java', 'JavaScript', 'Ruby', 'Go', 'Swift', 'Kotlin', 'TypeScript', 'SQL', 'HTML', 'CSS', 'C++', 'C', 'Rust', 'Lua'];
 
         return [
             'name' => $this->faker->name(),
-            'skills' => $this->faker->randomElements($skills, rand(1, 10)), //Tao 1-5 ki nang ngau nhien
+            'skills' => $this->faker->randomElements($skills, rand(1, 8)), //Tao 1-5 ki nang ngau nhien
             'school_class_id' => SchoolClass::inRandomOrder()->first()->id,
             'gpa' => $this->faker->randomFloat(2, 0, 4),
         ];

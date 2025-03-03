@@ -7,6 +7,13 @@
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
+            <!-- Name -->
+            <div class="mb-4">
+                <x-input-label for="name" :value="__('Tên')" />
+                <x-text-input id="name" class="block mt-1 w-full border-gray-300 rounded-md shadow-sm" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-input-error :messages="$errors->get('name')" class="mt-2" />
+            </div>
+
             <!-- Email Address -->
             <div class="mb-4">
                 <x-input-label for="email" :value="__('Email')" />

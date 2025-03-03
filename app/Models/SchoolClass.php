@@ -9,10 +9,15 @@ class SchoolClass extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'faculty_id'];
 
     public function students()
     {
         return $this->hasMany(Student::class);
+    }
+
+    public function faculty()
+    {
+        return $this->belongsTo(Faculty::class);
     }
 }
