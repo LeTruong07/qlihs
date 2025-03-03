@@ -1,8 +1,9 @@
 <x-guest-layout>
-    <div class="bg-white p-8 rounded shadow-md text-center max-w-lg mx-auto">
-        <img src="https://cdn.haitrieu.com/wp-content/uploads/2021/11/Logo-DH-Phenikaa-V-Bl.png" alt="Phenikaa University Logo" class="mx-auto mb-4 h-16">
-        <h2 class="text-3xl font-bold mb-4">Đăng nhập</h2>
+    <div class="flex justify-center mt-6">
+        <img src="{{ asset('images/logo.png') }}" alt="Logo" class="block h-28 w-auto" />
+    </div>
 
+    <div class="mt-6">
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
@@ -22,10 +23,8 @@
 
             <div class="flex items-center justify-between mt-4">
                 <button type="submit" class="btn btn-primary">Đăng nhập</button>
-                <a href="{{ route('password.request') }}" class="text-sm text-gray-600 hover:text-gray-900">Quên mật khẩu?</a>
+                <a href="{{ route('register') }}" class="text-sm text-gray-600 hover:text-gray-900">Bạn chưa có tài khoản?</a>
             </div>
         </form>
-
-        <p class="mt-4">Bạn chưa có tài khoản? Vui lòng tạo tài khoản tại đây <a href="{{ route('register') }}" class="text-blue-500 hover:underline">Đăng Kí</a></p>
     </div>
 </x-guest-layout>

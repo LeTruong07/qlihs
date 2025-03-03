@@ -19,13 +19,13 @@ class SchoolClassFactory extends Factory
      */
     public function definition(): array
     {
-        static $classTypes = ['CNTT', 'CNTTVJ', 'KHMT'];
+        static $classTypes = ['Công nghệ thông tin(CNTT', 'Công nghệ thông tin Việt-Nhật(CNTTVJ', 'Khoa học máy tính(KHMT','Hệ thống thông tin(HTTT','Kỹ thuật phần mềm(KTPM','An toàn thông tin(ATTT'];
         static $classIndex = 0;
         static $classNumber = 1;
 
-        $className = $classTypes[$classIndex] . $classNumber;
+        $className = $classTypes[$classIndex] . $classNumber . ')';
 
-        // Update class number and index
+        // Cap nhat classNumber va classIndex
         $classNumber++;
         if ($classNumber > 9) {
             $classNumber = 1;

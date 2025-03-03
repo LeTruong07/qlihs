@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <img src="https://cdn.haitrieu.com/wp-content/uploads/2021/11/Logo-DH-Phenikaa-V-Wh.png" alt="Phenikaa University Logo" class="block h-9 w-auto" />
+                        <img src="{{ asset('images/logo.png') }}" alt="Logo" class="block h-9 w-auto" />
                     </a>
                 </div>
 
@@ -14,6 +14,9 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('students.index')" :active="request()->routeIs('students.index')">
+                        {{ __('Students') }}
                     </x-nav-link>
                     <x-nav-link :href="route('school-classes.index')" :active="request()->routeIs('school-classes.index')">
                         {{ __('Classes') }}
@@ -72,6 +75,9 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('students.index')" :active="request()->routeIs('students.index')">
+                {{ __('Students') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('school-classes.index')" :active="request()->routeIs('school-classes.index')">
                 {{ __('Classes') }}

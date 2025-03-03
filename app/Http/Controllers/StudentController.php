@@ -15,31 +15,36 @@ class StudentController extends Controller
     public function index(Request $request)
     {
         $search = $request->input('search');
-        $class = $request->input('class');
+        $sort = $request->input('sort', 'name');
+        $direction = $request->input('direction', 'asc');
 
         $students = Student::query()
             ->when($search, function ($query, $search) {
-                return $query->where('name', 'like', "%{$search}%");
+                return $query->where('name', 'like', "%{$search}%")
+                             ->orWhere(function ($query) use ($search) {
+                                 if (is_numeric($search)) {
+                                     $query->where('id', $search);
+                                 }
+                             });
             })
-            ->when($class, function ($query, $class) {
-                return $query->whereHas('schoolClass', function ($query) use ($class) {
-                    $query->where('name', $class);
-                });
-            })
-            ->paginate(15); // Set the number of items per page
+            ->orderBy($sort, $direction)
+            ->paginate(15); //So luong hoc sinh trong mot phan trang
 
         $classes = SchoolClass::all();
 
-        return view('students.index', compact('students', 'search', 'classes', 'class'));
+        return view('students.index', compact('students', 'search', 'classes', 'sort', 'direction'));
     }
 
     /**
-     * Tao hoc sinh
-     * /students/create GET
+     * Tao sinh vien
+     * students/create GET
      */
     public function create()
     {
-        return view('students.create');
+        $classes = SchoolClass::all();
+        $skills = ['PHP', 'C#', 'Python', 'Java', 'JavaScript', 'Ruby', 'Go', 'Swift', 'Kotlin', 'TypeScript'];
+
+        return view('students.create', compact('classes', 'skills'));
     }
 
     /**
@@ -81,7 +86,10 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        return view('students.edit', compact('student'));
+        $skills = ['PHP', 'C#', 'Python', 'Java', 'JavaScript', 'Ruby', 'Go', 'Swift', 'Kotlin', 'TypeScript'];
+        $classes = SchoolClass::all();
+
+        return view('students.edit', compact('student', 'skills', 'classes'));
     }
 
     /**

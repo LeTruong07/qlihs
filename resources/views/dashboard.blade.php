@@ -20,16 +20,6 @@
                             <li><strong>Ngày tham gia:</strong> {{ Auth::user()->created_at->format('M d, Y') }}</li>
                         </ul>
                     </div>
-
-                    <!-- Quick Links -->
-                    <div class="mb-6">
-                        <h4 class="text-xl font-semibold mb-2">Quick Links</h4>
-                        <ul class="list-disc list-inside">
-                            <li><a href="{{ route('profile.edit') }}" class="text-blue-500 hover:underline">Thay đổi thông tin người dùng</a></li>
-                            <li><a href="{{ route('students.index') }}" class="text-blue-500 hover:underline">Xem danh sách học sinh</a></li>
-                            <li><a href="{{ route('students.create') }}" class="text-blue-500 hover:underline">Thêm học sinh</a></li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>

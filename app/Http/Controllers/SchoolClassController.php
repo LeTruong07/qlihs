@@ -33,12 +33,19 @@ class SchoolClassController extends Controller
     }
 
     /**
-     * Hien thi lop hoc va hoc sinh
+     * Hien thi danh sach hoc sinh trong mot lop hoc va sort 
+     * school-classes/{id} GET
      */
-    public function show(SchoolClass $schoolClass)
+    public function show(Request $request, SchoolClass $schoolClass)
     {
-        $students = $schoolClass->students;
-        return view('school-classes.show', compact('schoolClass', 'students'));
+        $sort = $request->input('sort', 'name');
+        $direction = $request->input('direction', 'asc');
+
+        $students = $schoolClass->students()
+            ->orderBy($sort, $direction)
+            ->get();
+
+        return view('school-classes.show', compact('schoolClass', 'students', 'sort', 'direction'));
     }
 
     /**

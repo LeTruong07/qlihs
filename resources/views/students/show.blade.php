@@ -17,7 +17,7 @@
 
                 <div class="flex space-x-2">
                     <a href="{{ route('students.edit', $student->id) }}" class="btn btn-secondary">Sửa</a>
-                    <form action="{{ route('students.destroy', $student->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this student?');">
+                    <form action="{{ route('students.destroy', $student->id) }}" method="POST" onsubmit="return confirm('Bạn có muốn xóa sinh viên này không?');">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Xóa</button>
