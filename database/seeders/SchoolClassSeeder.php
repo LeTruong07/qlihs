@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\SchoolClass;
 use Illuminate\Database\Seeder;
-use App\Models\Student;
 
 class SchoolClassSeeder extends Seeder
 {
@@ -15,6 +14,7 @@ class SchoolClassSeeder extends Seeder
      */
     public function run()
     {
-        SchoolClass::factory(10)->has(Student::factory()->count(10))->create();
+        
+        SchoolClass::factory()->count(27)->create();
     }
 }

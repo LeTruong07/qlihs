@@ -24,8 +24,8 @@ class StudentFactory extends Factory
 
         return [
             'name' => $this->faker->name(),
-            'skill' => $this->faker->randomElement($skills),
-            'school_class_id' => SchoolClass::factory(),
+            'skills' => $this->faker->randomElements($skills, rand(1, 5)), //Tao 1-5 ki nang ngau nhien
+            'school_class_id' => SchoolClass::inRandomOrder()->first()->id,
             'gpa' => $this->faker->randomFloat(2, 0, 4),
         ];
     }

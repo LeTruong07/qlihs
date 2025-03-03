@@ -9,7 +9,11 @@ class Student extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'skill', 'school_class_id', 'gpa'];
+    protected $fillable = ['name', 'skills', 'school_class_id', 'gpa'];
+
+    protected $casts = [
+        'skills' => 'array',
+    ];
 
     public function schoolClass()
     {

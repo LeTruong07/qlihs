@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use App\Models\SchoolClass;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -13,19 +14,23 @@ class StudentController extends Controller
      */
     public function index(Request $request)
     {
-        $search = $request->input('search'); 
+        $search = $request->input('search');
+        $class = $request->input('class');
+
         $students = Student::query()
             ->when($search, function ($query, $search) {
-                return $query->where('name', 'like', "%{$search}%")
-                             ->orWhere(function ($query) use ($search) {
-                                 if (is_numeric($search)) {
-                                     $query->where('id', $search);
-                                 }
-                             });
+                return $query->where('name', 'like', "%{$search}%");
             })
-            ->get();
+            ->when($class, function ($query, $class) {
+                return $query->whereHas('schoolClass', function ($query) use ($class) {
+                    $query->where('name', $class);
+                });
+            })
+            ->paginate(15); // Set the number of items per page
 
-        return view('students.index', compact('students', 'search'));
+        $classes = SchoolClass::all();
+
+        return view('students.index', compact('students', 'search', 'classes', 'class'));
     }
 
     /**
@@ -45,12 +50,15 @@ class StudentController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'skill' => 'required',
-            'class' => 'required',
+            'skills' => 'required|array|max:5',
+            'skills.*' => 'string',
+            'school_class_id' => 'required|exists:school_classes,id',
             'gpa' => 'required|numeric|min:0|max:4',
         ]);
 
-        Student::create($request->all());
+        $student = new Student($request->all());
+        $student->skills = $request->input('skills');
+        $student->save();
 
         return redirect()->route('students.index')
                          ->with('success', 'Student created successfully.');
@@ -84,12 +92,15 @@ class StudentController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'skill' => 'required',
-            'class' => 'required',
+            'skills' => 'required|array|max:5',
+            'skills.*' => 'string',
+            'school_class_id' => 'required|exists:school_classes,id',
             'gpa' => 'required|numeric|min:0|max:4',
         ]);
 
-        $student->update($request->all());
+        $student->fill($request->all());
+        $student->skills = $request->input('skills');
+        $student->save();
 
         return redirect()->route('students.index')
                          ->with('success', 'Student updated successfully.');

@@ -5,11 +5,16 @@
                 <h2 class="text-2xl font-bold mb-4">Tất cả học sinh</h2>
 
                 <!-- Search Bar -->
-                <form action="{{ route('students.index') }}" method="GET" class="mb-6">
-                    <div class="flex items-center">
-                        <input type="text" name="search" placeholder="Tìm kiếm học sinh" value="{{ request('search') }}" class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                        <button type="submit" class="ml-2 btn btn-primary">Tìm</button>
-                    </div>
+                <form action="{{ route('students.index') }}" method="GET" class="mb-6 flex items-center">
+                    <input type="text" name="search" placeholder="Tìm kiếm học sinh" value="{{ request('search') }}" class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <select name="class" class="ml-2 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <option value="">Tất cả lớp</option>
+                        @foreach ($classes as $schoolClass)
+                            <option value="{{ $schoolClass->name }}" {{ request('class') == $schoolClass->name ? 'selected' : '' }}>{{ $schoolClass->name }}</option>
+                        @endforeach
+                    </select>
+                    <button type="submit" class="ml-2 btn btn-primary">Tìm</button>
+                    <a href="{{ route('students.create') }}" class="ml-2 btn btn-primary">Create New Student</a>
                 </form>
 
                 <!-- Students List -->
@@ -34,12 +39,12 @@
                             </li>
                         @endforeach
                     </ul>
-                @endif
 
-                <!-- Create Button -->
-                <div class="mt-6">
-                    <a href="{{ route('students.create') }}" class="btn btn-primary">Create New Student</a>
-                </div>
+                    <!-- Trang danh sach con -->
+                    <div class="mt-6">
+                        {{ $students->links() }}
+                    </div>
+                @endif
             </div>
         </div>
     </div>

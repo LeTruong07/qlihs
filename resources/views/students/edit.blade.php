@@ -11,12 +11,12 @@
                         <input type="text" id="name" name="name" value="{{ $student->name }}" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
                     </div>
                     <div class="mb-4">
-                        <label for="skill" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Skill</label>
-                        <input type="text" id="skill" name="skill" value="{{ $student->skill }}" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                    </div>
-                    <div class="mb-4">
-                        <label for="class" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Class</label>
-                        <input type="text" id="class" name="class" value="{{ $student->class }}" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <label for="skills" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Skills</label>
+                        <select id="skills" name="skills[]" multiple required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            @foreach (['PHP', 'C#', 'Python', 'Java', 'JavaScript', 'Ruby', 'Go', 'Swift', 'Kotlin', 'TypeScript'] as $skill)
+                                <option value="{{ $skill }}" {{ in_array($skill, $student->skills) ? 'selected' : '' }}>{{ $skill }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="mb-4">
                         <label for="gpa" class="block text-sm font-medium text-gray-700 dark:text-gray-300">GPA</label>
