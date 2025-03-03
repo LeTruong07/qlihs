@@ -1,34 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Network</title>
-    @vite('resources/css/app.css')
-</head>
-<body class="bg-gray-100">
-    <header class="bg-blue-600 text-white py-4">
-        <nav class="container mx-auto flex justify-between items-center">
-            <a href="/" class="text-2xl font-bold">Quản Lí Học Sinh</a>
-            <div>
-                <a href="/students" class="hover:underline">All Students</a>
-                <a href="/students/create" class="hover:underline">Create New Student</a>
-            </div>
-        </nav>
-    </header>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <main class="container mx-auto p-4 bg-white shadow-md rounded mt-6">
-        @if (session('success'))  <!--them vao mot thanh thong bao neu cac route thanh cong-->
-            <div class="bg-green-500 text-white p-4 rounded mb-4">
-                {{ session('success') }}
-            </div>
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+<body class="font-sans antialiased">
+    <div class="min-h-screen bg-gray-100 dark:bg-gray-900 flex flex-col">
+        @include('layouts.navigation')
+
+        <!-- Page Heading -->
+        @if (isset($header))
+            <header class="bg-white dark:bg-gray-800 shadow">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    {{ $header }}
+                </div>
+            </header>
         @endif
 
-        {{$slot}}
-    </main>
+        <!-- Page Content -->
+        <main class="flex-grow">
+            <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+                {{ $slot }}
+            </div>
+        </main>
 
-    <footer class="bg-blue-600 text-white py-4 mt-6">
-        <p class="text-center">Phenikaa Quan li Sinh Vien</p>
-    </footer>
+        <!-- Footer -->
+        <footer class="bg-white dark:bg-gray-800 shadow mt-8">
+            <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 text-center text-gray-600 dark:text-gray-400">
+                &copy; {{ date('Y') }} {{ config('app.name', 'Laravel') }}. All rights reserved.
+            </div>
+        </footer>
+    </div>
 </body>
 </html>

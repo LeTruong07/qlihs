@@ -26,7 +26,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('skill');
-            $table->string('class');
+            $table->foreignId('school_class_id')->constrained()->onDelete('cascade');
             $table->float('gpa');
             $table->timestamps();
         });

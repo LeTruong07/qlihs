@@ -2,137 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-    --primary-color: rgb(37, 77, 136);
-    --secondary-color: #ffc107;
-    --background-color: #f9f9f9;
-    --text-color: #333;
-}
-
 body {
-    font-family: Arial, sans-serif;
-    background-color: var(--background-color);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    color: var(--text-color);
+    @apply bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100;
 }
 
-header,
-footer {
-    background-color: #1e3a8a;
-    color: white;
-    padding: 1rem 0;
-}
-
-header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header nav h1 {
-    color: white;
-    margin: 0;
-}
-
-header nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 0.5rem;
-    transition: color 0.3s;
-}
-
-header nav a:hover {
-    color: rgb(23, 24, 23);
-}
-
-main.container {
-    flex: 1;
-    width: 90%;
-    max-width: 1200px;
-    margin: 2rem auto;
-}
-
-main {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-top: 1.5rem;
-}
-
-h2 {
-    font-size: 2rem;
-    color: var(--text-color);
-    margin-bottom: 1rem;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-li {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    transition: transform 0.2s, box-shadow 0.2s;
-    flex: 1 1 calc(33.333% - 1rem);
-    box-sizing: border-box;
-}
-
-li:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-}
-
-.card {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    text-decoration: none;
-    color: var(--text-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.highlight {
-    background-color: var(--highlight-color);
-    border-color: var(--highlight-border-color);
+h1 {
+    @apply text-3xl font-bold text-center mb-6;
 }
 
 .btn {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-    text-decoration: none;
-    color: white;
-    background-color: #1e3a8a; /* Tailwind CSS blue-800 */
-    margin-right: 0.5rem;
-    transition: background-color 0.3s;
+    @apply inline-flex items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150;
 }
 
 .btn-primary {
-    background-color: #2563eb; /* Tailwind CSS blue-600 */
+    @apply bg-blue-500 text-white hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+}
+
+.btn-secondary {
+    @apply bg-gray-500 text-white hover:bg-gray-700 focus:ring-2 focus:ring-gray-500 focus:ring-offset-2;
 }
 
 .btn-danger {
-    background-color: #dc2626; /* Tailwind CSS red-600 */
+    @apply bg-red-500 text-white hover:bg-red-700 focus:ring-2 focus:ring-red-500 focus:ring-offset-2;
 }
 
-.btn:hover {
-    opacity: 0.8;
+.header {
+    @apply bg-white dark:bg-gray-800 shadow py-6 px-4 sm:px-6 lg:px-8;
 }
 
-footer p {
-    text-align: center;
+.footer {
+    @apply bg-white dark:bg-gray-800 shadow mt-8 py-4 px-4 sm:px-6 lg:px-8 text-center text-gray-600 dark:text-gray-400;
 }

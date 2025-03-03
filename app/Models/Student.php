@@ -7,9 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
-    protected $fillable = ['name', 'skill', 'class', 'gpa']; // cho phep mass assignment
-
     use HasFactory;
 
-    
+    protected $fillable = ['name', 'skill', 'school_class_id', 'gpa'];
+
+    public function schoolClass()
+    {
+        return $this->belongsTo(SchoolClass::class);
+    }
 }

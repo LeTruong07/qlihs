@@ -1,17 +1,23 @@
 <x-layout>
-    <div class="p-6 bg-white rounded shadow-md">
-        <h2 class="text-2xl font-bold mb-4">Student id {{ $student->id }}</h2>
-        <p class="mb-2"><strong>Name:</strong> {{ $student->name }}</p>
-        <p class="mb-2"><strong>Skill:</strong> {{ $student->skill }}</p>
-        <p class="mb-2"><strong>Class:</strong> {{ $student->class }}</p>
-        <p class="mb-4"><strong>GPA:</strong> {{ $student->gpa }}</p>
+    <div class="max-w-7xl mx-auto py-12 sm:px-6 lg:px-8">
+        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="p-6 text-gray-900 dark:text-gray-100">
+                <h2 class="text-2xl font-bold mb-4">Thông tin chi tiết học sinh</h2>
+                <p class="mb-2"><strong>Mã sinh viên:</strong> {{ $student->id }}</p>
+                <p class="mb-2"><strong>Tên:</strong> {{ $student->name }}</p>
+                <p class="mb-2"><strong>Kĩ năng:</strong> {{ $student->skill }}</p>
+                <p class="mb-2"><strong>Lớp:</strong> {{ $student->schoolClass->name }}</p>
+                <p class="mb-4"><strong>GPA:</strong> {{ $student->gpa }}</p>
 
-        <a href="{{ route('students.edit', $student->id) }}" class="btn">Edit</a>
-
-        <form action="{{ route('students.destroy', $student->id) }}" method="POST" style="display:inline;">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="btn btn-danger">Delete</button>
-        </form>
+                <div class="flex space-x-2">
+                    <a href="{{ route('students.edit', $student->id) }}" class="btn btn-secondary">Edit</a>
+                    <form action="{{ route('students.destroy', $student->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this student?');">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </x-layout>
