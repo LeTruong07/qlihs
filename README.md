@@ -14,11 +14,13 @@ Dự án này là một hệ thống quản lý sinh viên được xây dựng 
 
 ## Tính Năng
 
-- **Danh Sách Sinh Viên**: Xem tổng quan nhanh về tất cả sinh viên.
-- **Danh Sách Lớp học**: Xem tổng quan nhanh về lớp học.
-- **Danh Sách Khoa**: Xem tổng quan nhanh về khoa.
-- **Xem Chi Tiết**: Khám phá sâu về thông tin từng sinh viên, bao gồm kỹ năng, lớp học và GPA.
-- **Thêm Sinh Viên**: Dễ dàng thêm sinh viên mới vào hệ thống.
+- **Danh Sách Sinh Viên**: Xem danh sách tất cả sinh viên.
+- **Danh Sách Lớp học**: Xem danh sách lớp học.
+- **Danh Sách Khoa**: Xem danh sách khoa.
+- **Danh Sách Môn Học**: Xem danh sách các môn học
+- **Xem Chi Tiết**: Khám phá sâu về thông tin từng sinh viên, bao gồm kỹ năng, lớp học, GPA, và trạng thái học tập.
+- **Thêm, Xóa, Sửa Sinh Viên**: Dễ dàng thêm sinh viên mới vào hệ thống.
+- **Tìm Kiếm và Sắp Xếp**: Tìm kiếm và sắp xếp sinh viên theo tên, lớp, và GPA.
 - **Seed Database**: Đổ dữ liệu mẫu chất lượng vào database bằng cách sử dụng factory và seeder tích hợp sẵn.
 
 ---
@@ -35,10 +37,12 @@ Dự án này là một hệ thống quản lý sinh viên được xây dựng 
 
 
 ## Sơ đồ quan hệ ERD
-![ảnh](https://github.com/user-attachments/assets/4c937abd-c32f-40dd-a6c3-e4b3386867e9)
+![image](https://github.com/user-attachments/assets/4af2aada-c443-4b8e-bb48-48ce4266284f)
+
 
 ## Sơ đồ USECASE
-![ảnh](https://github.com/user-attachments/assets/b2ea082e-6397-407c-a97f-26be10e952a4)
+![image](https://github.com/user-attachments/assets/89245f4c-0a64-4fd7-b1e2-2d71a9f6c6dd)
+
 
 
 ## Cài Đặt
@@ -100,3 +104,6 @@ Dự án bao gồm:
 
 - **StudentFactory**: Sinh ra dữ liệu mẫu với các kỹ năng và lớp học đã được định sẵn.
 - **StudentSeeder**: Dùng factory để thả luôn dữ liệu sinh viên mẫu vào database.
+- **FacultySeeder**: Tạo các khoa và các lớp học tương ứng.
+- **SubjectSeeder**: Tạo các môn học và gán ngẫu nhiên cho sinh viên.
+
