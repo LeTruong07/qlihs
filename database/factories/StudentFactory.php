@@ -2,9 +2,10 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Student;
 use App\Models\SchoolClass;
+use App\Models\Subject;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Student>
@@ -20,13 +21,24 @@ class StudentFactory extends Factory
      */
     public function definition(): array
     {
-        $skills = ['PHP', 'C#', 'Python', 'Java', 'JavaScript', 'Ruby', 'Go', 'Swift', 'Kotlin', 'TypeScript', 'SQL', 'HTML', 'CSS', 'C++', 'C', 'Rust', 'Lua'];
+        $subjects = Subject::pluck('name')->toArray();
+        $skillsCount = rand(1, min(count($subjects) - 1, 8));
+        $skills = $this->faker->randomElements($subjects, $skillsCount);
+        $remainingSubjects = array_diff($subjects, $skills);
+        $currentlyLearningCount = rand(1, min(count($remainingSubjects), 4));
+        $currently_learning = $this->faker->randomElements($remainingSubjects, $currentlyLearningCount);
+        $is_graduated = count($skills) > 8;
 
         return [
             'name' => $this->faker->name(),
-            'skills' => $this->faker->randomElements($skills, rand(1, 8)), //Tao 1-5 ki nang ngau nhien
+            'skills' => $skills,
             'school_class_id' => SchoolClass::inRandomOrder()->first()->id,
             'gpa' => $this->faker->randomFloat(2, 0, 4),
+            'gender' => $this->faker->randomElement(['Nam', 'Nữ']),
+            'date_of_birth' => $this->faker->date(),
+            'phone_number' => $this->faker->phoneNumber(),
+            'currently_learning' => $currently_learning,
+            'is_graduated' => $is_graduated,
         ];
     }
 }

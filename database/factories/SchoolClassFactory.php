@@ -20,11 +20,23 @@ class SchoolClassFactory extends Factory
      */
     public function definition(): array
     {
-        static $classTypes = ['Công nghệ thông tin(CNTT', 'Công nghệ thông tin Việt-Nhật(CNTTVJ', 'Khoa học máy tính(KHMT','Hệ thống thông tin(HTTT','Kỹ thuật phần mềm(KTPM','An toàn thông tin(ATTT'];
+        static $classTypes = [
+            'CNTT' => 'Khoa Công nghệ thông tin',
+            'CNTTVJ' => 'Khoa Công nghệ thông tin Việt-Nhật',
+            'KHMT' => 'Khoa Khoa học máy tính',
+            'HTTT' => 'Khoa Hệ thống thông tin',
+            'KTPM' => 'Khoa Kỹ thuật phần mềm',
+            'ATTT' => 'Khoa An toàn thông tin',
+            'QTKD' => 'Khoa Quản trị kinh doanh', 
+            'KT' => 'Khoa Kế toán', 
+            'NN' => 'Khoa Ngoại ngữ', 
+        ];
+
         static $classIndex = 0;
         static $classNumber = 1;
 
-        $className = $classTypes[$classIndex] . $classNumber . ')';
+        $classPrefix = array_keys($classTypes)[$classIndex];
+        $className = $classPrefix . $classNumber;
 
         // Cap nhat classNumber va classIndex
         $classNumber++;
@@ -38,7 +50,7 @@ class SchoolClassFactory extends Factory
 
         return [
             'name' => $className,
-            'faculty_id' => Faculty::inRandomOrder()->first()->id,
+            'faculty_id' => Faculty::where('name', $classTypes[$classPrefix])->first()->id,
         ];
     }
 }

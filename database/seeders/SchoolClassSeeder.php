@@ -14,7 +14,6 @@ class SchoolClassSeeder extends Seeder
      */
     public function run()
     {
-        
-        SchoolClass::factory()->count(6*9)->create();
+        SchoolClass::factory()->count(54)->create();
     }
 }

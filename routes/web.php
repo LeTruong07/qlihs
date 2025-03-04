@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SchoolClassController;
 use App\Http\Controllers\FacultyController;
+use App\Http\Controllers\SubjectController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -24,8 +25,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('students', StudentController::class); //resource se tao ra cac route tuong ung voi cac phuong thuc trong controller
+Route::resource('students', StudentController::class);
 Route::resource('school-classes', SchoolClassController::class);
 Route::resource('faculties', FacultyController::class);
+Route::resource('subjects', SubjectController::class);
 
 require __DIR__.'/auth.php';

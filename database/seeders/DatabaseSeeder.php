@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Student;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,7 +14,10 @@ class DatabaseSeeder extends Seeder
         // Call the FacultySeeder
         $this->call(FacultySeeder::class);
 
-        // Create students
-        Student::factory(100)->create();
+        // Call the SubjectSeeder
+        $this->call(SubjectSeeder::class);
+
+        // Call the StudentSeeder
+        $this->call(StudentSeeder::class);
     }
 }

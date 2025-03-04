@@ -13,7 +13,7 @@ class FacultySeeder extends Seeder
      */
     public function run(): void
     {
-        // //Khai bao cac khoa
+        // Danh sach cac khoa
         $faculties = [
             'Khoa Công nghệ thông tin' => 'CNTT',
             'Khoa Khoa học máy tính' => 'KHMT',
@@ -21,12 +21,15 @@ class FacultySeeder extends Seeder
             'Khoa Hệ thống thông tin' => 'HTTT',
             'Khoa Kỹ thuật phần mềm' => 'KTPM',
             'Khoa An toàn thông tin' => 'ATTT',
+            'Khoa Quản trị kinh doanh' => 'QTKD',
+            'Khoa Kế toán' => 'KT',
+            'Khoa Ngoại ngữ' => 'NN',
         ];
 
         foreach ($faculties as $facultyName => $classPrefix) {
             $faculty = Faculty::create(['name' => $facultyName]);
 
-            // Tao ra cac lop hoc
+            //Tao lop hoc cho khoa
             for ($i = 1; $i <= 9; $i++) {
                 SchoolClass::create([
                     'name' => "{$classPrefix}{$i}",

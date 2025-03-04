@@ -14,6 +14,11 @@ return new class extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('gender')->nullable();
+            $table->date('date_of_birth')->nullable();
+            $table->string('phone_number')->nullable();
+            $table->json('currently_learning')->nullable();
+            $table->boolean('is_graduated')->default(false);
             $table->json('skills')->nullable();
             $table->foreignId('school_class_id')->constrained()->onDelete('cascade');
             $table->float('gpa');

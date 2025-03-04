@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Student;
+use App\Models\SchoolClass;
+use App\Models\Subject;
 
 class StudentSeeder extends Seeder
 {
@@ -12,8 +14,21 @@ class StudentSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
-        Student::factory()->count(50)->create();
+        $schoolClasses = SchoolClass::all();
+        $subjects = Subject::all();
+
+        foreach ($schoolClasses as $schoolClass) {
+            $students = Student::factory()->count(40)->create([
+                'school_class_id' => $schoolClass->id,
+            ]);
+
+            foreach ($students as $student) {
+                $student->subjects()->attach(
+                    $subjects->random(rand(1, 4))->pluck('id')->toArray()
+                );
+            }
+        }
     }
 }
