@@ -74,21 +74,32 @@ Làm theo các bước dưới đây để khởi động hệ thống:
    ```bash
    cp .env.example .env
    ```
-
-4. **Tạo Application Key:**
+   Mở file .env và cập nhật các thông tin cấu hình cần thiết, đặc biệt là thông tin kết nối database:
+   ```bash
+   DB_CONNECTION=pgsql
+   DB_HOST=127.0.0.1
+   DB_PORT=5432
+   DB_DATABASE=your_database_name
+   DB_USERNAME=your_database_username
+   DB_PASSWORD=your_database_password
+   ```
+5. **Tạo Application Key:**
 
    ```bash
    php artisan key:generate
    ```
 
-5. **Chạy Migration & Seed Database:**
+6. **Chạy Migration & Seed Database:**
 
    Chạy các migration và seed dữ liệu mẫu vào database:
    ```bash
    php artisan migrate --seed
    ```
-
-6. **Chạy Server:**
+   Chạy Vite để build các assets:
+   ```bash
+   npm run build
+   ```
+8. **Chạy Server:**
 
    Khởi chạy server với:
    ```bash
@@ -107,3 +118,4 @@ Dự án bao gồm:
 - **FacultySeeder**: Tạo các khoa và các lớp học tương ứng.
 - **SubjectSeeder**: Tạo các môn học và gán ngẫu nhiên cho sinh viên.
 
+# Có thể truy cập website public để xem [trực tiếp](qlihs-production-dea5.up.railway.app) (đã đóng)
