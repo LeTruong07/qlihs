@@ -5,29 +5,18 @@
 
 ---
 
-## Mục Lục
+## Giới thiệu
 
-- [Tổng Quan](#tổng-quan)
-- [Tính Năng](#tính-năng)
-- [Yêu Cầu](#yêu-cầu)
-- [Cài Đặt](#cài-đặt)
-- [Seed Database](#seed-database)
-- [Cách Sử Dụng](#cách-sử-dụng)
+Dự án này là một hệ thống quản lý sinh viên được xây dựng bằng Laravel, một framework PHP nổi tiếng với cú pháp thanh lịch và các tính năng mạnh mẽ. Hệ thống sử dụng kiến trúc MVC của Laravel để tách biệt các mối quan tâm và đảm bảo tính bảo trì. Ứng dụng cũng sử dụng PostgreSQL làm hệ quản trị cơ sở dữ liệu và Tailwind CSS để tạo kiểu.
 
----
-
-## Tổng Quan
-
-Hệ Thống Quản Lý Sinh Viên này là một ứng dụng Laravel giúp bạn:
-- **Hiển thị** danh sách tất cả sinh viên
-- **Xem** chi tiết thông tin của từng sinh viên
-- **Thêm mới** sinh viên dễ dàng
 
 ---
 
 ## Tính Năng
 
 - **Danh Sách Sinh Viên**: Xem tổng quan nhanh về tất cả sinh viên.
+- **Danh Sách Lớp học**: Xem tổng quan nhanh về lớp học.
+- **Danh Sách Khoa**: Xem tổng quan nhanh về khoa.
 - **Xem Chi Tiết**: Khám phá sâu về thông tin từng sinh viên, bao gồm kỹ năng, lớp học và GPA.
 - **Thêm Sinh Viên**: Dễ dàng thêm sinh viên mới vào hệ thống.
 - **Seed Database**: Đổ dữ liệu mẫu chất lượng vào database bằng cách sử dụng factory và seeder tích hợp sẵn.
@@ -43,6 +32,14 @@ Hệ Thống Quản Lý Sinh Viên này là một ứng dụng Laravel giúp b�
 - **Vite**
 
 ---
+
+
+## Sơ đồ quan hệ ERD
+![ảnh](https://github.com/user-attachments/assets/4c937abd-c32f-40dd-a6c3-e4b3386867e9)
+
+## Sơ đồ USECASE
+![ảnh](https://github.com/user-attachments/assets/b2ea082e-6397-407c-a97f-26be10e952a4)
+
 
 ## Cài Đặt
 
