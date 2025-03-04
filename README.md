@@ -118,4 +118,4 @@ Dự án bao gồm:
 - **FacultySeeder**: Tạo các khoa và các lớp học tương ứng.
 - **SubjectSeeder**: Tạo các môn học và gán ngẫu nhiên cho sinh viên.
 
-# Có thể truy cập website public để xem [trực tiếp](qlihs-production-dea5.up.railway.app) (đã đóng)
+Có thể truy cập website public để xem trực tiếp: [qlihs-production-dea5.up.railway.app](qlihs-production-dea5.up.railway.app) (đã đóng)
